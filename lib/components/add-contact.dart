@@ -5,9 +5,8 @@ import 'package:masked_text/masked_text.dart';
 import '../Models/contact-item.dart';
 
 class AddContactWidget extends StatefulWidget {
+
   const AddContactWidget({super.key});
-
-
 
   @override
   State<AddContactWidget> createState() => _AddContactWidgetState();
@@ -16,14 +15,34 @@ class AddContactWidget extends StatefulWidget {
 class _AddContactWidgetState extends State<AddContactWidget> {
   final contactList = Contact.contacList();
   final id = Contact.contacList().length+1;
+
+  final _nameController = TextEditingController();
   final _birthdayController = TextEditingController();
+  final _emailController = TextEditingController();
   final _phoneController = TextEditingController();
 
   String name = '';
-  String lastName = '';
   String birthday = '';
   String email = '';
   String tell = '';
+
+  void _createContactItem(int id, String name, String birthday, String email, String tell) {
+    setState(() {
+      contactList.add(
+          Contact(
+              id: id,
+              name: name,
+              birthday: birthday,
+              email: email,
+              tell: tell
+          )
+      );
+    });
+    _nameController.clear();
+    _phoneController.clear();
+    _emailController.clear();
+    _birthdayController.clear();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -67,6 +86,7 @@ class _AddContactWidgetState extends State<AddContactWidget> {
               margin: const EdgeInsets.only(bottom: 15),
               padding: const EdgeInsets.only(left: 30, right: 30),
               child: TextField(
+                controller: _nameController,
                 keyboardType: TextInputType.name,
                 onChanged: (text) {name = text;},
                 style: const TextStyle(color: Color(0xFF06080F)),
@@ -80,39 +100,6 @@ class _AddContactWidgetState extends State<AddContactWidget> {
                     color: Color(0xFF36368a),
                   ),
                   labelText: 'Nome',
-                  labelStyle: const TextStyle(
-                    color: Color(0xFF00008b),
-                  ),
-                  filled: true,
-                  fillColor: const Color(0xFFf5f5ff),
-                  enabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(50.0),
-                    borderSide:  const BorderSide(color: Color(0xFF7F8C99) ),
-                  ),
-                  focusedBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(50.0),
-                    borderSide:  const BorderSide(color: Color(0xFF00008b)),
-                  ),
-                ),
-              ),
-            ),
-            Container(
-              margin: const EdgeInsets.only(bottom: 15),
-              padding: const EdgeInsets.only(left: 30, right: 30),
-              child: TextField(
-                keyboardType: TextInputType.name,
-                onChanged: (text) {lastName = text;},
-                style: const TextStyle(color: Color(0xFF06080F)),
-                decoration: InputDecoration(
-                  prefixIcon: const Icon(
-                      Icons.person
-                  ),
-                  prefixIconColor: const Color(0xFF00008b),
-                  hintText: 'Sobrenome do Contato',
-                  hintStyle: const TextStyle(
-                    color: Color(0xFF36368a),
-                  ),
-                  labelText: 'Sobrenome',
                   labelStyle: const TextStyle(
                     color: Color(0xFF00008b),
                   ),
@@ -171,6 +158,7 @@ class _AddContactWidgetState extends State<AddContactWidget> {
               margin: const EdgeInsets.only(bottom: 15),
               padding: const EdgeInsets.only(left: 30, right: 30),
               child: TextField(
+                controller: _emailController,
                 keyboardType: TextInputType.emailAddress,
                 onChanged: (text) {email = text;},
                 style: const TextStyle(color: Color(0xFF06080F)),
@@ -258,7 +246,7 @@ class _AddContactWidgetState extends State<AddContactWidget> {
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(50.0)
                       ),
-                      padding: const EdgeInsets.symmetric(vertical: 25, horizontal: 120),
+                      padding: const EdgeInsets.symmetric(vertical: 25, horizontal: 115),
                       textStyle: const TextStyle(
                         color: Colors.white,
                         fontSize: 13,
@@ -266,7 +254,7 @@ class _AddContactWidgetState extends State<AddContactWidget> {
                       ),
                     ),
                     onPressed: () {
-
+                      _createContactItem(id, _nameController.text, _birthdayController.text, _emailController.text, _phoneController.text);
                     },
                     child: const Text('CRIAR CONTATO')),
               ),
@@ -276,3 +264,4 @@ class _AddContactWidgetState extends State<AddContactWidget> {
     );
   }
 }
+

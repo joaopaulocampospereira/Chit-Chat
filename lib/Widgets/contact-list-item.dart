@@ -30,7 +30,7 @@ class ContactItem extends StatelessWidget {
               child: Icon(Icons.person)
           ),
           title: Text(
-            '${contact.name} ${contact.lastName}',
+            '${contact.name}',
             style: TextStyle(
               fontSize: 16,
               color: Colors.black,

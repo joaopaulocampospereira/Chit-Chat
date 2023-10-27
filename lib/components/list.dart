@@ -12,7 +12,16 @@ class ListWidget extends StatefulWidget {
 }
 
 class ListWidgetState extends State {
-  final contacList = Contact.contacList();
+  final contactList = Contact.contacList();
+  final _searchController = TextEditingController();
+  List<Contact> _foundContact = [];
+
+  @override
+  void initState() {
+    _foundContact = contactList;
+
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -49,7 +58,7 @@ class ListWidgetState extends State {
                           fontWeight: FontWeight.w500),
                     ),
                   ),
-                  for (Contact contact in contacList)
+                  for (Contact contact in _foundContact)
                     ContactItem(contact: contact,),
                 ],
               ),
@@ -59,34 +68,59 @@ class ListWidgetState extends State {
       ),
     );
   }
-}
 
-Widget SearchBox() {
-  return Padding(
-    padding: EdgeInsets.all(10),
-    child: Container(
-      padding: EdgeInsets.symmetric(horizontal: 15),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(50.0),
-      ),
-      child: TextField(
-        decoration: InputDecoration(
-          contentPadding: EdgeInsets.all(0),
-          prefixIcon: Icon(
-            Icons.search,
-            color: Colors.black,
-            size: 20,
+
+  void  _runFilter(String enteredKeyword) {
+    List<Contact>? results = [];
+    if(enteredKeyword.isEmpty) {
+      results = contactList;
+    } else {
+      results = contactList.where(
+        (item) => item.name!
+            .toLowerCase()
+            .contains(
+              enteredKeyword
+                  .toLowerCase()
+        )
+      ).toList();
+    }
+
+    setState(() {
+      _foundContact = results!;
+    });
+  }
+
+  Widget SearchBox() {
+    return Padding(
+      padding: EdgeInsets.all(10),
+      child: Container(
+        padding: EdgeInsets.symmetric(horizontal: 15),
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(50.0),
+        ),
+        child: TextField(
+          controller: _searchController,
+          onChanged: (text) {
+            _runFilter(text);
+          },
+          decoration: InputDecoration(
+            contentPadding: EdgeInsets.all(0),
+            prefixIcon: Icon(
+              Icons.search,
+              color: Colors.black,
+              size: 20,
+            ),
+            prefixIconConstraints: BoxConstraints(
+              maxHeight: 20,
+              minWidth: 25,
+            ),
+            border: InputBorder.none,
+            hintText: 'Procurar',
+            hintStyle: TextStyle(color: Colors.grey),
           ),
-          prefixIconConstraints: BoxConstraints(
-            maxHeight: 20,
-            minWidth: 25,
-          ),
-          border: InputBorder.none,
-          hintText: 'Procurar',
-          hintStyle: TextStyle(color: Colors.grey),
         ),
       ),
-    ),
-  );
+    );
+  }
 }
