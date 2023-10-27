@@ -219,7 +219,7 @@ class RegisterWidgetState extends State {
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(50.0)
                     ),
-                    padding: const EdgeInsets.only(top: 25.0, right: 150.0, bottom: 25.0, left: 150.0),
+                    padding: const EdgeInsets.only(top: 25.0, right: 132.0, bottom: 25.0, left: 132.0),
                     textStyle: const TextStyle(
                       color: Colors.white,
                       fontSize: 13,

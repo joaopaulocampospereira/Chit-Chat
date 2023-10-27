@@ -3,9 +3,6 @@ import 'package:flutter/material.dart';
 
 import '../Models/contact-item.dart';
 import '../Widgets/contact-list-item.dart';
-import '../pages/login-page.dart';
-import '../pages/about-page.dart';
-import '../pages/list-page.dart';
 
 class ListWidget extends StatefulWidget {
   @override

@@ -12,7 +12,7 @@ class CreatePage extends StatelessWidget {
           brightness: Brightness.light,
           primaryColor: Color(0xFF3E4050)
       ),
-      home: AddContact(),
+      home: AddContactWidget(),
   );
   }
 }
