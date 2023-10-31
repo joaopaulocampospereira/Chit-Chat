@@ -23,7 +23,7 @@ class HomePage extends StatelessWidget {
           brightness: Brightness.dark,
           primaryColor: Color(0xFF3E4050)
       ),
-      initialRoute: '/create',
+      initialRoute: '/login',
       routes: {
         '/': (context) => ListPage(),
         '/login': (context) => LoginPage(),

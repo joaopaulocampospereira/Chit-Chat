@@ -39,9 +39,9 @@ class _AddContactWidgetState extends State<AddContactWidget> {
       );
     });
     _nameController.clear();
-    _phoneController.clear();
-    _emailController.clear();
     _birthdayController.clear();
+    _emailController.clear();
+    _phoneController.clear();
   }
 
   @override
