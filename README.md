@@ -1,6 +1,8 @@
-# contect_list
+# Contact List
 
 My Project For Mobile Class
+
+For this first fase of the project, the only email an password that will work to login, is "user@test.com" and "dev123"
 
 ## Getting Started
 
