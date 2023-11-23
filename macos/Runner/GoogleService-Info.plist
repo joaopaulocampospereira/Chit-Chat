@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>API_KEY</key>
+	<string>AIzaSyBqtHdhdIC2lkUlD4WFJUU1Q-UMxLr1KXA</string>
+	<key>GCM_SENDER_ID</key>
+	<string>934223700817</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.projectend.contectList.RunnerTests</string>
+	<key>PROJECT_ID</key>
+	<string>chit-chat-b680d</string>
+	<key>STORAGE_BUCKET</key>
+	<string>chit-chat-b680d.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:934223700817:ios:c19db09e7b3701b479a970</string>
+	<key>DATABASE_URL</key>
+	<string>https://chit-chat-b680d-default-rtdb.firebaseio.com</string>
+</dict>
+</plist>
