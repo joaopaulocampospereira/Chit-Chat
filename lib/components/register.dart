@@ -1,7 +1,11 @@
 import 'package:contect_list/pages/login-page.dart';
 import 'package:flutter/material.dart';
 
+import '../controller/login_controller.dart';
+
 class RegisterWidget extends StatefulWidget{
+  const RegisterWidget({super.key});
+
   @override
   RegisterWidgetState createState() {
     return RegisterWidgetState();
@@ -9,10 +13,20 @@ class RegisterWidget extends StatefulWidget{
 }
 
 class RegisterWidgetState extends State {
+   var txtEmail = TextEditingController();
+   var txtPassword = TextEditingController();
+   var txtName = TextEditingController();
+
   String email = '';
   String password = '';
   String cPassword = '';
   String name = '';
+
+  @override
+  void  initState() {
+   super.initState();
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -93,6 +107,7 @@ class RegisterWidgetState extends State {
             child: TextField(
               onChanged: (text) {name = text;},
               style: const TextStyle(color: Colors.white),
+              controller: txtName,
               decoration: InputDecoration(
                 hintText: 'Insira seu Nome',
                 hintStyle: const TextStyle(
@@ -121,6 +136,7 @@ class RegisterWidgetState extends State {
               keyboardType: TextInputType.emailAddress,
               onChanged: (text) {email = text;},
               style: const TextStyle(color: Colors.white),
+              controller: txtEmail,
               decoration: InputDecoration(
                 hintText: 'Insira seu Email',
                 hintStyle: const TextStyle(
@@ -149,6 +165,7 @@ class RegisterWidgetState extends State {
               onChanged: (text) {password = text;},
               obscureText: true,
               style: const TextStyle(color: Colors.white),
+              controller: txtPassword,
               decoration: InputDecoration(
                 hintText: 'Insira sua Senha',
                 hintStyle: const TextStyle(
@@ -226,7 +243,16 @@ class RegisterWidgetState extends State {
                     ),
                   ),
                   onPressed: () {
-
+                    LoginController().criarConta(
+                      context,
+                      txtName.text,
+                      txtEmail.text,
+                      txtPassword.text,
+                    ).then(
+                        Navigator.of(context).pushReplacement(
+                          MaterialPageRoute(builder: (context) => LoginPage()),
+                        )
+                    );
                   },
                   child: const Text('Criar Conta')),
             ),
@@ -242,17 +268,18 @@ class RegisterWidgetState extends State {
                 ),
               ),
               ElevatedButton(
-                  onPressed: () {
-                    Navigator.of(context).pushReplacement(
-                      MaterialPageRoute(builder: (context) => LoginPage()),
-                    );
-                  },
                   style: ElevatedButton.styleFrom(
                       primary: Colors.transparent,
                       onSurface: Colors.transparent,
                       shadowColor: Colors.transparent,
                       padding: const EdgeInsets.all(-20)
                   ),
+                  onPressed: () {
+
+                    Navigator.of(context).pushReplacement(
+                      MaterialPageRoute(builder: (context) => LoginPage()),
+                    );
+                  },
                   child: const Text(
                     'Faça Login.',
                     style:  TextStyle(

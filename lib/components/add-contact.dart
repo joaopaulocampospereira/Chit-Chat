@@ -13,8 +13,11 @@ class AddContactWidget extends StatefulWidget {
 }
 
 class _AddContactWidgetState extends State<AddContactWidget> {
-  final contactList = Contact.contacList();
-  final id = Contact.contacList().length+1;
+  // final contactList = Contact.contacList();
+  // final id = Contact.contacList().length+1;
+
+  final contactList = 1;
+  final id = 1;
 
   final _nameController = TextEditingController();
   final _birthdayController = TextEditingController();
@@ -26,23 +29,23 @@ class _AddContactWidgetState extends State<AddContactWidget> {
   String email = '';
   String tell = '';
 
-  void _createContactItem(int id, String name, String birthday, String email, String tell) {
-    setState(() {
-      contactList.add(
-          Contact(
-              id: id,
-              name: name,
-              birthday: birthday,
-              email: email,
-              tell: tell
-          )
-      );
-    });
-    _nameController.clear();
-    _birthdayController.clear();
-    _emailController.clear();
-    _phoneController.clear();
-  }
+  // void _createContactItem(int id, String name, String birthday, String email, String tell) {
+  //   setState(() {
+  //     contactList.add(
+  //         Contact(
+  //             id: id,
+  //             name: name,
+  //             birthday: birthday,
+  //             email: email,
+  //             tell: tell
+  //         )
+  //     );
+  //   });
+  //   _nameController.clear();
+  //   _birthdayController.clear();
+  //   _emailController.clear();
+  //   _phoneController.clear();
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -254,7 +257,7 @@ class _AddContactWidgetState extends State<AddContactWidget> {
                       ),
                     ),
                     onPressed: () {
-                      _createContactItem(id, _nameController.text, _birthdayController.text, _emailController.text, _phoneController.text);
+                      // _createContactItem(id, _nameController.text, _birthdayController.text, _emailController.text, _phoneController.text);
                     },
                     child: const Text('CRIAR CONTATO')),
               ),

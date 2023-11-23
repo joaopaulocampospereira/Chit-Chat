@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import '../Models/contact-item.dart';
 import '../Widgets/contact-list-item.dart';
 
+import '../controller/task_controller.dart';
+
 class ListWidget extends StatefulWidget {
   @override
   ListWidgetState createState() {
@@ -12,7 +14,7 @@ class ListWidget extends StatefulWidget {
 }
 
 class ListWidgetState extends State {
-  final contactList = Contact.contacList();
+  final contactList = ContactController().list();
   final _searchController = TextEditingController();
   List<Contact> _foundContact = [];
 

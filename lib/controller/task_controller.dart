@@ -1,18 +1,18 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
-import '../model/tarefa.dart';
+import '../Models/contact-item.dart';
 import '../view/util.dart';
 import 'login_controller.dart';
 
-class TarefaController {
+class ContactController {
   //
   // ADICIONAR uma nova Tarefa
   //
   void add(context, Contact c) {
     FirebaseFirestore.instance
         .collection('contact')
-        .add(t.toJson())
+        .add(c.toJson())
         .then((value) => sucesso(context, 'Contato adicionado com sucesso'))
         .catchError(
             (e) => erro(context, 'Não foi possível adicionar o contato.'))
@@ -26,7 +26,7 @@ class TarefaController {
     FirebaseFirestore.instance
         .collection('contact')
         .doc(id)
-        .update(t.toJson())
+        .update(c.toJson())
         .then((value) => sucesso(context, 'Contato atualizado com sucesso'))
         .catchError(
             (e) => erro(context, 'Não foi possível atualizar o contato.'))
