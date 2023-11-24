@@ -1,14 +1,13 @@
 {
   "project_info": {
-    "project_number": "934223700817",
-    "firebase_url": "https://chit-chat-b680d-default-rtdb.firebaseio.com",
-    "project_id": "chit-chat-b680d",
-    "storage_bucket": "chit-chat-b680d.appspot.com"
+    "project_number": "60414514188",
+    "project_id": "contact-60b30",
+    "storage_bucket": "contact-60b30.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:934223700817:android:fe55068d58c8ef0479a970",
+        "mobilesdk_app_id": "1:60414514188:android:603b2e1e018e898ce40a29",
         "android_client_info": {
           "package_name": "com.projectend.contect_list"
         }
@@ -16,7 +15,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyApNhE4Mm4Y49WWepdXuyRNrK_vfmu7bUs"
+          "current_key": "AIzaSyAEZgro928EfKo0CczWwYvnCcEDJYuwR8g"
         }
       ],
       "services": {

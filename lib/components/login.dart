@@ -1,3 +1,4 @@
+import 'package:contect_list/controller/login_controller.dart';
 import 'package:contect_list/pages/forgot-page.dart';
 import 'package:flutter/material.dart';
 
@@ -11,6 +12,9 @@ class LoginWidget extends StatefulWidget{
   }
 }
 class LoginWidgetState extends State {
+  var txtEmail = TextEditingController();
+  var txtPassword = TextEditingController();
+
   String email = '';
   String password = '';
 
@@ -94,6 +98,7 @@ class LoginWidgetState extends State {
               child: TextField(
                 keyboardType: TextInputType.emailAddress,
                 onChanged: (text) {email = text;},
+                controller: txtEmail,
                 style: const TextStyle(color: Colors.white),
                 decoration: InputDecoration(
                   hintText: 'Insira seu Email',
@@ -120,6 +125,7 @@ class LoginWidgetState extends State {
             Padding(
               padding: const EdgeInsets.only(top: 2.0, right: 25.0, bottom: 2.0, left: 25.0),
               child: TextField(
+                controller: txtPassword,
                 onChanged: (text) {password = text;},
                 obscureText: true,
                 style: const TextStyle(color: Colors.white),
@@ -194,11 +200,17 @@ class LoginWidgetState extends State {
                       ),
                     ),
                     onPressed: () {
-                      if(email == 'user@test.com' && password == 'dev123') {
-                        Navigator.of(context).pushReplacement(
-                          MaterialPageRoute(builder: (context) => ListPage()),
-                        );
-                      }
+                      LoginController().login(
+                          context,
+                          txtEmail.text,
+                          txtPassword.text
+                      );
+
+                      // if(email == 'user@test.com' && password == 'dev123') {
+                      //   Navigator.of(context).pushReplacement(
+                      //     MaterialPageRoute(builder: (context) => ListPage()),
+                      //   );
+                      // }
                     },
                     child: const Text('Entrar')),
                 ),

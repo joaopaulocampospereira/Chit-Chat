@@ -1,7 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:contect_list/pages/login-page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import '../pages/list-page.dart';
 import '../view/util.dart';
 
 class LoginController {
@@ -18,17 +20,24 @@ class LoginController {
     )
         .then((resultado) {
       //Armazenar o NOME do usuário no Firestore
-      FirebaseFirestore.instance.collection('usuarios').add(
+      FirebaseFirestore.instance.collection('users').add(
         {
           'uid': resultado.user!.uid,
           'nome': nome,
         },
       );
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => LoginPage()),
+      );
 
       sucesso(context, 'Usuário criado com sucesso.');
       Navigator.pop(context);
+      print('logou, mas nn mudou de pagina');
 
     }).catchError((e) {
+      print(e);
+
       switch (e.code) {
         case 'email-already-in-use':
           erro(context, 'O email já foi cadastrado.');
@@ -49,8 +58,11 @@ class LoginController {
     FirebaseAuth.instance
         .signInWithEmailAndPassword(email: email, password: senha)
         .then((value) {
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => ListPage()),
+      );
       sucesso(context, 'Usuário autenticado com sucesso.');
-      Navigator.pushNamed(context, 'list-page');
     }).catchError((e) {
       switch (e.code) {
         case 'user-not-found':
@@ -95,7 +107,7 @@ class LoginController {
   Future<String> usuarioLogado() async {
     var usuario = '';
     await FirebaseFirestore.instance
-        .collection('usuarios')
+        .collection('users')
         .where('uid', isEqualTo: idUsuario())
         .get()
         .then(

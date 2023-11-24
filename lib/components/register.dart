@@ -248,10 +248,6 @@ class RegisterWidgetState extends State {
                       txtName.text,
                       txtEmail.text,
                       txtPassword.text,
-                    ).then(
-                        Navigator.of(context).pushReplacement(
-                          MaterialPageRoute(builder: (context) => LoginPage()),
-                        )
                     );
                   },
                   child: const Text('Criar Conta')),

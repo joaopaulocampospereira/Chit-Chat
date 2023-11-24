@@ -1,6 +1,8 @@
 import 'package:contect_list/pages/login-page.dart';
 import 'package:flutter/material.dart';
 
+import '../controller/login_controller.dart';
+
 class ForgotWidget extends StatefulWidget {
   @override
   ForgotWidgetState createState() {
@@ -8,6 +10,8 @@ class ForgotWidget extends StatefulWidget {
 }
 }
 class ForgotWidgetState extends State {
+  var txtForgot = TextEditingController();
+
   String email = '';
   String password = '';
 
@@ -89,6 +93,7 @@ class ForgotWidgetState extends State {
              Padding(
               padding: const EdgeInsets.only(top: 10.0, right: 25.0, bottom: 2.0, left: 25.0),
               child: TextField(
+                controller: txtForgot,
                 keyboardType: TextInputType.emailAddress,
                 onChanged: (text) {email = text;},
                 style: const TextStyle(color: Colors.white),
@@ -141,7 +146,12 @@ class ForgotWidgetState extends State {
                         fontSize: 13,
                       ),
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                      LoginController().esqueceuSenha(
+                        context,
+                        txtForgot.text,
+                      );
+                    },
                     child: const Text('Enviar Email')),
                 ),
             ),

@@ -44,42 +44,38 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyDehh3QjCFg63yhsBTc-247cORArhgPkZE',
-    appId: '1:934223700817:web:1d7bcf3ecaa4600d79a970',
-    messagingSenderId: '934223700817',
-    projectId: 'chit-chat-b680d',
-    authDomain: 'chit-chat-b680d.firebaseapp.com',
-    databaseURL: 'https://chit-chat-b680d-default-rtdb.firebaseio.com',
-    storageBucket: 'chit-chat-b680d.appspot.com',
-    measurementId: 'G-H28JQ2NF0Z',
+    apiKey: 'AIzaSyCaZP8fWAtblw2RUii5w2JsPgguDY8QIUA',
+    appId: '1:60414514188:web:f8a62aef41e5660de40a29',
+    messagingSenderId: '60414514188',
+    projectId: 'contact-60b30',
+    authDomain: 'contact-60b30.firebaseapp.com',
+    storageBucket: 'contact-60b30.appspot.com',
+    measurementId: 'G-LXSQQ09D55',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyApNhE4Mm4Y49WWepdXuyRNrK_vfmu7bUs',
-    appId: '1:934223700817:android:fe55068d58c8ef0479a970',
-    messagingSenderId: '934223700817',
-    projectId: 'chit-chat-b680d',
-    databaseURL: 'https://chit-chat-b680d-default-rtdb.firebaseio.com',
-    storageBucket: 'chit-chat-b680d.appspot.com',
+    apiKey: 'AIzaSyAEZgro928EfKo0CczWwYvnCcEDJYuwR8g',
+    appId: '1:60414514188:android:603b2e1e018e898ce40a29',
+    messagingSenderId: '60414514188',
+    projectId: 'contact-60b30',
+    storageBucket: 'contact-60b30.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyBqtHdhdIC2lkUlD4WFJUU1Q-UMxLr1KXA',
-    appId: '1:934223700817:ios:10603aaf0bcc75b079a970',
-    messagingSenderId: '934223700817',
-    projectId: 'chit-chat-b680d',
-    databaseURL: 'https://chit-chat-b680d-default-rtdb.firebaseio.com',
-    storageBucket: 'chit-chat-b680d.appspot.com',
+    apiKey: 'AIzaSyCMejsGi1q6uLtYaYj_yOTfew93o6Iitzo',
+    appId: '1:60414514188:ios:73ce1163a2f02459e40a29',
+    messagingSenderId: '60414514188',
+    projectId: 'contact-60b30',
+    storageBucket: 'contact-60b30.appspot.com',
     iosBundleId: 'com.projectend.contectList',
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyBqtHdhdIC2lkUlD4WFJUU1Q-UMxLr1KXA',
-    appId: '1:934223700817:ios:c19db09e7b3701b479a970',
-    messagingSenderId: '934223700817',
-    projectId: 'chit-chat-b680d',
-    databaseURL: 'https://chit-chat-b680d-default-rtdb.firebaseio.com',
-    storageBucket: 'chit-chat-b680d.appspot.com',
+    apiKey: 'AIzaSyCMejsGi1q6uLtYaYj_yOTfew93o6Iitzo',
+    appId: '1:60414514188:ios:501c6cbab789355ee40a29',
+    messagingSenderId: '60414514188',
+    projectId: 'contact-60b30',
+    storageBucket: 'contact-60b30.appspot.com',
     iosBundleId: 'com.projectend.contectList.RunnerTests',
   );
 }
